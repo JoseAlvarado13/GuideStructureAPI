@@ -41,9 +41,10 @@ namespace Settings.Security
         /// Constructor for initializing the class with the configuration object.
         /// </summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param> 
-        public AuthorizationCfg(IConfiguration configuration)
+        public AuthorizationCfg()
         {
-            _configuration = configuration;
+
+            
         }
         #endregion
 
