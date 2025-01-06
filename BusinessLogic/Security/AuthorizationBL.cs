@@ -27,7 +27,7 @@ namespace BusinessLogic.Security
         /// Author: José Andrés Alvarado Matamoros 
         /// Constructor for initializing the class with the configuration object.
         /// </summary>
-        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <param></param>
         public AuthorizationBL() 
         {
             authorizationDTO = new AuthorizationDTO(); 
