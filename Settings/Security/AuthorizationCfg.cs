@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-
+using Microsoft.Extensions.Configuration.Json;
 namespace Settings.Security
 {
     #region Enums 
@@ -43,8 +43,12 @@ namespace Settings.Security
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param> 
         public AuthorizationCfg()
         {
-
-            
+            // Define the path to the appsettings.json
+            string basePath = Directory.GetCurrentDirectory(); // Gets the output directory
+            _configuration = new ConfigurationBuilder()
+                .SetBasePath(basePath) // Set the base path
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true) // Load the file
+                .Build();
         }
         #endregion
 

@@ -1,3 +1,5 @@
+using BusinessLogic.Security;
+using BusinessLogicInterfaces.Security;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GuideStructureAPI.Controllers
@@ -21,6 +23,10 @@ namespace GuideStructureAPI.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            IAuthorizationBL authorizationBL = new AuthorizationBL();
+            authorizationBL.Get("","");
+
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
