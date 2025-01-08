@@ -1,7 +1,6 @@
 ﻿using BusinessLogicInterfaces.Security;
 using Entities.Commons;
 using EntitiesInterfaces.Commons;
-using EntitiesInterfaces.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
