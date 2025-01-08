@@ -10,13 +10,13 @@ namespace Settings.Commons
     /// </summary>
     public class BaseConfigurationAppSetting
     {
-        #region Constructor 
-        /// <summary>        
+        #region GetConfiguration
+        /// <summary>
         /// AM-001
-        /// Author: José Andrés Alvarado Matamoros 
-        /// Constructor for initializing the class with the configuration object.
+        /// Author: José Andrés Alvarado Matamoros
+        /// Method to initialize the configuration object for the class by loading settings from the appsettings.json file.
         /// </summary>
-        /// <param name=""></param> 
+        /// <returns>IConfiguration object containing the application settings.</returns>
         protected IConfiguration GetConfiguration()
         {
             // Define the path to the appsettings.json
