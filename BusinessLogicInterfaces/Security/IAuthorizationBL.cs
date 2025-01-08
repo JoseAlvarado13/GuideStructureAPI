@@ -1,4 +1,5 @@
-﻿using EntitiesInterfaces.Security;
+﻿using EntitiesInterfaces.Commons;
+using EntitiesInterfaces.Security;
 
 namespace BusinessLogicInterfaces.Security
 {
@@ -15,10 +16,9 @@ namespace BusinessLogicInterfaces.Security
         /// Author: José Andrés Alvarado Matamoros
         /// Method to validate credential sent of the other application.
         /// </summary>
-        /// <param name="UserName">Here came user sent to another external application.</param> 
-        /// <param name="Password">Here came password sent to another external application.</param> 
+        /// <param name="User">Here came user sent to another external application and also here came password sent to another external application.</param> 
         /// <@Return>This method return true if the credential are de same,  other hand the method'll return false .</param> 
-        bool Get(string UserName , string Password);
+        bool Get(IUserDTO User);
         #endregion
     }
 }
