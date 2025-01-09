@@ -1,6 +1,9 @@
 using BusinessLogic.Security;
+using Entities.Base;
+using EntitiesInterfaces.Base;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace GuideStructureAPI.Controllers
 {
@@ -21,9 +24,10 @@ namespace GuideStructureAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpPost(Name = "GetWeatherForecast")]
+        public IEnumerable<WeatherForecast> Get(RequestDTO requestDTO)
         {
+            object ss = JsonSerializer.Deserialize<object>(requestDTO.Value.ToString());
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
