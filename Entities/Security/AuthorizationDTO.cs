@@ -1,5 +1,4 @@
 ﻿using EntitiesInterfaces.Security;
-using Microsoft.Extensions.Configuration;
 using Settings.Security;
 
 namespace Entities.Security
