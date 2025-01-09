@@ -1,4 +1,6 @@
+using BusinessLogic.Commons;
 using BusinessLogic.Security;
+using BusinessLogicInterfaces.Commons;
 using Entities.Base;
 using EntitiesInterfaces.Base;
 using Microsoft.AspNetCore.Authorization;
@@ -28,6 +30,8 @@ namespace GuideStructureAPI.Controllers
         public IEnumerable<WeatherForecast> Get(RequestDTO requestDTO)
         {
             object ss = JsonSerializer.Deserialize<object>(requestDTO.Value.ToString());
+            IExchangeRateBL exchangeRateBL = new ExchangeRateBL();
+            exchangeRateBL.Get();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
