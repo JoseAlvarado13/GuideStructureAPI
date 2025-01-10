@@ -36,14 +36,6 @@
         /// 
         /// The exception object containing the error details.
         /// </summary>
-        public Exception Error { get; set; }
-
-        /// <summary>
-        /// AM-001
-        /// Author:  José Andrés Alvarado Matamoros
-        /// 
-        /// Optional: Additional details or context about the error.
-        /// </summary>
-        public string AdditionalDetails { get; set; }
+        public string Error { get; set; }    
     }
 }

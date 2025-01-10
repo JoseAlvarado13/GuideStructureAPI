@@ -68,8 +68,7 @@ namespace BusinessLogic.Commons
                     new ExceptionDTO {                        
                         Class  = this.GetType().Name,
                         Method = Method.Get.ToString(),
-                        Error = ex,
-                        AdditionalDetails = ex.ToString()
+                        Error = ex.ToString(),                        
                     });                    
             }           
             return Response;

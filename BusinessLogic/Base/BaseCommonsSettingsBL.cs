@@ -20,14 +20,14 @@ namespace BusinessLogic.Base
         protected IResponseDTO ManageException(ExceptionDTO exceptionDTO)
         {
             IResponseDTO response = new ResponseDTO();
-
+            response.ErrorMessage = new List<string>();
             try
             {
                 //To do: Here we have to added logic to save this error in data base
 
                 // Format the error details into the response object
                 response.Result = ActionResult.Error;                
-                response.ErrorMessage.Add(exceptionDTO.AdditionalDetails);
+                response.ErrorMessage.Add(exceptionDTO.Error);
             }
             catch (Exception ex)
             {
