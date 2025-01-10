@@ -1,7 +1,6 @@
 ﻿using Entities.Base;
 using EntitiesInterfaces.Base;
 using EntitiesInterfaces.Commons.Enums;
-using System.Text.Json;
 
 namespace BusinessLogic.Base
 {
