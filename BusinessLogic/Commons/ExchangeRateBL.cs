@@ -1,10 +1,12 @@
 ﻿using BusinessLogic.API;
+using BusinessLogic.Base;
 using BusinessLogicInterfaces.API;
 using BusinessLogicInterfaces.Commons;
 using Entities.API;
 using Entities.Base;
 using EntitiesInterfaces.API;
 using EntitiesInterfaces.Base;
+using EntitiesInterfaces.Commons.Enums;
 
 namespace BusinessLogic.Commons
 {
@@ -13,7 +15,7 @@ namespace BusinessLogic.Commons
     /// Author: José Andrés Alvarado Matamoros
     /// Class manage exchange rate  to public hacienda of Costa Rica services.
     /// </summary>
-    public class ExchangeRateBL : IExchangeRateBL
+    public class ExchangeRateBL : BaseCommonsSettingsBL , IExchangeRateBL
     {
         #region Global Data 
         /// <summary>        
@@ -61,7 +63,14 @@ namespace BusinessLogic.Commons
                 Response.Value = apiConfigurationBL.Call();
             }
             catch (Exception ex)
-            {                
+            {
+                Response = ManageException(
+                    new ExceptionDTO {                        
+                        Class  = this.GetType().Name,
+                        Method = Method.Get.ToString(),
+                        Error = ex,
+                        AdditionalDetails = ex.ToString()
+                    });                    
             }           
             return Response;
         }
