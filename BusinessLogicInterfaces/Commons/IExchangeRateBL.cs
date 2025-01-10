@@ -1,4 +1,6 @@
-﻿namespace BusinessLogicInterfaces.Commons
+﻿using EntitiesInterfaces.Base;
+
+namespace BusinessLogicInterfaces.Commons
 {
     /// <summary>
     /// AM-001
@@ -15,7 +17,7 @@
         /// </summary>
         /// <param></param> 
         /// <returns>A string containing the exchange rate response.</returns>
-        string Get();
+        IResponseDTO Get();
         #endregion
     }
 }

@@ -4,7 +4,7 @@ namespace Entities.API
 {
     /// <summary>
     /// AM-001
-    /// José Andrés Alvarado Matamoros.
+    /// Author:  José Andrés Alvarado Matamoros.
     /// Class manage entities handle Api response.
     /// </summary>
     public class ApiResponseDTO : IApiResponseDTO

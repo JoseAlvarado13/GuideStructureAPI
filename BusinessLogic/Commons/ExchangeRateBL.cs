@@ -2,7 +2,9 @@
 using BusinessLogicInterfaces.API;
 using BusinessLogicInterfaces.Commons;
 using Entities.API;
+using Entities.Base;
 using EntitiesInterfaces.API;
+using EntitiesInterfaces.Base;
 
 namespace BusinessLogic.Commons
 {
@@ -45,16 +47,23 @@ namespace BusinessLogic.Commons
         /// </summary>
         /// <param></param> 
         /// <returns>A string containing the exchange rate response.</returns>
-        public string Get()
+        public IResponseDTO Get()
         {
-            apiConfigurationBL = new ApiConfigurationBL
+            IResponseDTO Response= new ResponseDTO();
+            try
             {
-                Url = haciendaDTO.Host + haciendaDTO.ExchangeRate,
-                Method = HttpMethod.Get
-            };
+                apiConfigurationBL = new ApiConfigurationBL
+                {
+                    Url = haciendaDTO.Host + haciendaDTO.ExchangeRate,
+                    Method = HttpMethod.Get
+                };
 
-            string response =apiConfigurationBL.Call();
-            return response;
+                Response.Value = apiConfigurationBL.Call();
+            }
+            catch (Exception ex)
+            {                
+            }           
+            return Response;
         }
         #endregion
     }

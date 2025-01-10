@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// AM-001
-    /// José Andrés Alvarado Matamoros.
+    /// Author:  José Andrés Alvarado Matamoros.
     /// Interface manage entities handle Api response.
     /// </summary>
     public interface IApiResponseDTO
