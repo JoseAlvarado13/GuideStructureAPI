@@ -5,6 +5,12 @@ using System.Text.Json;
 
 namespace BusinessLogic.Base
 {
+    /// <summary>
+    /// AM-001
+    /// Author: José Andrés Alvarado Matamoros
+    /// 
+    /// This class serves as a base for reusable methods that can be shared across multiple classes.
+    /// </summary>
     public class BaseCommonsSettingsBL
     {
         /// <summary>
