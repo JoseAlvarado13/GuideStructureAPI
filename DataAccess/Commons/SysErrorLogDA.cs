@@ -23,7 +23,7 @@ namespace DataAccess.Commons
         {
             using (DracarysContext context = new DracarysContext()) 
             {
-            //    context.;
+               // context.UspSaveSysErrorLog();
             }
             return 0;
         }

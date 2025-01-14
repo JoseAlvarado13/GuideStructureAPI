@@ -7,7 +7,7 @@ namespace DataAccess.DataModel.DracarysModel
     /// Author: José Andrés Alvarado Matamoros
     /// Class to execute stored procedures for the Dracarys database.
     /// </summary>
-    public class DracarysStoredProcedure:DbContext
+    public partial class DracarysContext : DbContext
     {
         public readonly DracarysContext _context;
 
@@ -17,7 +17,7 @@ namespace DataAccess.DataModel.DracarysModel
         /// Constructor to initialize DracarysStoredProcedure with the provided DracarysContext.
         /// </summary>
         /// <param name="context">DracarysContext instance to interact with the database.</param>
-        public DracarysStoredProcedure(DracarysContext context)
+        public DracarysContext(DracarysContext context)
         {
             _context = context;
         }
