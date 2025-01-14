@@ -1,4 +1,6 @@
-﻿using Entities.Base;
+﻿using DataAccess.Commons;
+using DataAccessInterface.Commons;
+using Entities.Base;
 using EntitiesInterfaces.Base;
 using EntitiesInterfaces.Commons.Enums;
 
@@ -24,7 +26,8 @@ namespace BusinessLogic.Base
             try
             {
                 //To do: Here we have to added logic to save this error in data base
-
+                ISysErrorLogDA sysErrorLogDA = new SysErrorLogDA();
+                sysErrorLogDA.Save(exceptionDTO);
                 // Format the error details into the response object
                 response.Result = ActionResult.Error;                
                 response.ErrorMessage.Add(exceptionDTO.Error);
