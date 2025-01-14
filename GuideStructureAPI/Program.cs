@@ -1,4 +1,7 @@
+using DataAccess.DataModel.DracarysModel;
+using Entities.Commons;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +51,28 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
+
+// Database configuration and service registration
+// AM-001
+// Author: José Andrés Alvarado Matamoros
+
+// Register the DataBaseDTO as a singleton service to ensure a single instance is shared across the application.
+builder.Services.AddSingleton<DataBaseDTO>();
+
+// Configure the DracarysContext to use the connection string provided by the DataBaseDTO.
+builder.Services.AddDbContext<DracarysContext>(options =>
+{
+    // Obtain the DataBaseDTO instance from the service provider.
+    var dbDTO = builder.Services.BuildServiceProvider().GetRequiredService<DataBaseDTO>();
+
+    // Configure the DbContext to use SQL Server with the connection string from the DataBaseDTO.
+    options.UseSqlServer(dbDTO.DefaultConnection);
+
+    // Note: The provider can be adjusted to use another database (e.g., MySQL, PostgreSQL) if needed.
+});
+
+
 
 var app = builder.Build();
 /// AM-001

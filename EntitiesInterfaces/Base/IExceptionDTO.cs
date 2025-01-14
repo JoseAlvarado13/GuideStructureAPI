@@ -1,14 +1,12 @@
-﻿using EntitiesInterfaces.Base;
-
-namespace Entities.Base
-{
+﻿namespace EntitiesInterfaces.Base
+{   
     /// <summary>
     /// AM-001
     /// Author:  José Andrés Alvarado Matamoros
     /// 
-    /// DTO for encapsulating exception details.
+    /// Interface for encapsulating exception details.
     /// </summary>
-    public class ExceptionDTO: IExceptionDTO
+    public interface IExceptionDTO
     {
         /// <summary>
         /// AM-001
@@ -38,6 +36,6 @@ namespace Entities.Base
         /// 
         /// The exception object containing the error details.
         /// </summary>
-        public string Error { get; set; }    
+        public string Error { get; set; }
     }
 }
