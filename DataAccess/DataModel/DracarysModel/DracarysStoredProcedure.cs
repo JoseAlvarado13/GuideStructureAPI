@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities.Commons;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.DataModel.DracarysModel
 {
@@ -9,18 +10,8 @@ namespace DataAccess.DataModel.DracarysModel
     /// </summary>
     public partial class DracarysContext : DbContext
     {
-        public readonly DracarysContext _context;
-
-        /// <summary>
-        /// AM-001
-        /// Author: José Andrés Alvarado Matamoros
-        /// Constructor to initialize DracarysStoredProcedure with the provided DracarysContext.
-        /// </summary>
-        /// <param name="context">DracarysContext instance to interact with the database.</param>
-        public DracarysContext(DracarysContext context)
-        {
-            _context = context;
-        }
+        public readonly DracarysContext _context = new DracarysContext(new DataBaseDTO());
+        
 
         #region SaveSysErrorLog
         /// <summary>
@@ -33,10 +24,10 @@ namespace DataAccess.DataModel.DracarysModel
         /// <param name="CreatedDate">The timestamp of when the error occurred.</param>
         /// <param name="IsEnable">A boolean indicating if the log entry is enabled.</param>
         /// <returns>The result of the stored procedure execution.</returns>
-        public int UspSaveSysErrorLog(string Host, string ErrorMessage, DateTime CreatedDate, bool IsEnable)
+        public int UspSaveSysErrorLog(string Host, string ErrorMessage, string ClassName, string MethodName, DateTime CreatedDate, bool IsEnable)
         {
             // Executes the stored procedure and returns the result
-            return _context.Database.ExecuteSqlRaw("EXEC [dbo].[USP_SaveSysErrorLog] @Host, @ErrorMessage, @CreatedDate, @IsEnable", Host, ErrorMessage, CreatedDate, IsEnable);
+            return _context.Database.ExecuteSqlRaw("EXEC [dbo].[USP_SaveSysErrorLog] @Host, @ErrorMessage, @Class, @Method, @CreatedDate, @IsEnable", Host, ErrorMessage, ClassName, MethodName, CreatedDate, IsEnable);
         }
         #endregion
     }

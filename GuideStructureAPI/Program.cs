@@ -61,16 +61,16 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddSingleton<DataBaseDTO>();
 
 // Configure the DracarysContext to use the connection string provided by the DataBaseDTO.
-builder.Services.AddDbContext<DracarysContext>(options =>
+builder.Services.AddScoped<DracarysContext>(provider =>
 {
-    // Obtain the DataBaseDTO instance from the service provider.
-    var dbDTO = builder.Services.BuildServiceProvider().GetRequiredService<DataBaseDTO>();
+    var dbDTO = provider.GetRequiredService<DataBaseDTO>();
+    var options = new DbContextOptionsBuilder<DracarysContext>()
+        .UseSqlServer(dbDTO.DefaultConnection)
+        .Options;
 
-    // Configure the DbContext to use SQL Server with the connection string from the DataBaseDTO.
-    options.UseSqlServer(dbDTO.DefaultConnection);
-
-    // Note: The provider can be adjusted to use another database (e.g., MySQL, PostgreSQL) if needed.
+    return new DracarysContext(options);
 });
+
 
 
 

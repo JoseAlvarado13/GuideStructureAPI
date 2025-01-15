@@ -36,6 +36,34 @@
         /// 
         /// The exception object containing the error details.
         /// </summary>
-        public string Error { get; set; }
+        public string Error { get; set; }        
+        /// <summary>
+        /// AM-001
+        /// Author:  José Andrés Alvarado Matamoros
+        /// 
+        /// The exception object containing the InternalErrorMessage details.
+        /// </summary>
+        public string InternalErrorMessage { get; set; }
+        /// <summary>
+        /// AM-001
+        /// Author:  José Andrés Alvarado Matamoros
+        /// 
+        /// The exception object containing the CurrentDate details.
+        /// </summary>
+        public DateTime CurrentDate { get; set; }
+        /// <summary>
+        /// AM-001
+        /// Author:  José Andrés Alvarado Matamoros
+        /// 
+        /// The exception object containing the IsEnable details.
+        /// </summary>
+        public bool IsEnable { get; set; }
+        /// <summary>
+        /// AM-001
+        /// Author:  José Andrés Alvarado Matamoros
+        /// 
+        /// The exception object containing the HostName details.
+        /// </summary>
+        public string HostName { get; set; }
     }
 }
